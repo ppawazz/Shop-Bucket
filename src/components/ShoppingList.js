@@ -3,11 +3,17 @@ import Item from "./ShoppingItem";
 
 const ShoppingList = ({ items, openModal }) => {
   return (
-    <ul className="shopping-list">
-      {items.map((item) => (
-        <Item key={item.id} item={item} openModal={openModal} />
-      ))}
-    </ul>
+    <div className="shopping-list">
+      {items.length === 0 ? (
+        <p>Silakan masukan daftar belanjaan.</p>
+      ) : (
+        <ul>
+          {items.map((item) => (
+            <Item key={item.id} item={item} openModal={openModal} />
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 
